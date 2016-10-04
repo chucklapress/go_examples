@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-    // Loop from 0 until 5 is reached.
-    for i := 0; i < 5; i++ {
-	// Display integer.
+    
+    for i := 0; i < 25; i++ {
+
 	fmt.Println(i)
     }
 }
