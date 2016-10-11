@@ -4,7 +4,7 @@ import "net/smtp"
 import "log"
 
 func send(body string, to string) {
-	from := " @gmail.com"
+	from := " "
 	password := " "
 
 	msg := "From: " + from + "\r\n" +
@@ -24,5 +24,5 @@ func send(body string, to string) {
 }
 
 func main() {
-	send("<h1>message sent from go.</h1>", " @gmail.com")
+	send("<h1>aren't you impressed?.</h1>", "@gmail.com")
 }
