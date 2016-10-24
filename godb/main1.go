@@ -9,7 +9,7 @@ func main() {
     easy := curl.EasyInit()
     defer easy.Cleanup()
 
-    easy.Setopt(curl.OPT_URL, "https://www.smokingpipes.com/")
+    easy.Setopt(curl.OPT_URL, "https://tipply-app.herokuapp.com/book")
 
     // make a callback function
     fooTest := func (buf []byte, userdata interface{}) bool {
