@@ -13,7 +13,7 @@ type Person struct {
 }
 
 func main() {
-        session, err := mgo.Dial("mongodb://localhost:27017/test")
+        session, err := mgo.Dial("mongodb://localhost:27017/new")
         if err != nil {
                 panic(err)
         }
@@ -22,15 +22,15 @@ func main() {
         // Optional. Switch the session to a monotonic behavior to check all nodes.
         session.SetMode(mgo.Monotonic, true)
 
-        c := session.DB("test").C("people")
-        err = c.Insert(&Person{"Mary Beths", "864 242 2535"},
-	               &Person{"Donald", "956 622 0838"})
+        c := session.DB("new").C("people")
+        err = c.Insert(&Person{"Chuck", "864 304 0561"},
+	               &Person{"MB", "864 770 3690"})
         if err != nil {
                 log.Fatal(err)
         }
 
         result := Person{}
-        err = c.Find(bson.M{"name": "Chuck"}).One(&result)
+        err = c.Find(bson.M{"name": "MB"}).One(&result)
         if err != nil {
                 log.Fatal(err)
         }
