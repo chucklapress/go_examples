@@ -13,7 +13,7 @@ type Person struct {
 }
 
 func main() {
-        session, err := mgo.Dial("mongodb://Chucks-MacBook-Air.local:27017/new")
+        session, err := mgo.Dial("mongodb://Chucks-Air:27017/new")
         if err != nil {
                 panic(err)
         }
