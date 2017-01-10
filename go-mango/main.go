@@ -23,8 +23,8 @@ func main() {
         session.SetMode(mgo.Monotonic, true)
 
         c := session.DB("new").C("people")
-        err = c.Insert(&Person{"Chuck", "864 304 0561"},
-	               &Person{"MB", "864 770 3690"})
+        err = c.Insert(&Person{"Summer", "864 304 0561"},
+	               &Person{"Spot", "864 770 3690"})
         if err != nil {
                 log.Fatal(err)
         }
