@@ -14,7 +14,7 @@ func main() {
     stmt, err := db.Prepare("INSERT userinfo SET username=?,departname=?,created=?")
     checkErr(err)
 
-    res, err := stmt.Exec("summerlapress", "student", "2017-01-02")
+    res, err := stmt.Exec("donaldlapress", "borderagent", "1963-09-20")
     checkErr(err)
 
     id, err := res.LastInsertId()
@@ -25,7 +25,7 @@ func main() {
     stmt, err = db.Prepare("update userinfo set username=? where uid=?")
     checkErr(err)
 
-    res, err = stmt.Exec("summerlapress", id)
+    res, err = stmt.Exec("donaldlapress", id)
     checkErr(err)
 
     affect, err := res.RowsAffected()
