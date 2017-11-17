@@ -19,18 +19,18 @@ func main() {
         }
         defer session.Close()
 
-        // Optional. Switch the session to a monotonic behavior to check all nodes.
+        // Optional. Switch the session to a monotonic behavior.
         session.SetMode(mgo.Monotonic, true)
 
-        c := session.DB("new").C("people")
-        err = c.Insert(&Person{"Summer", "864 304 0561"},
-	               &Person{"Spot", "864 770 3690"})
+        c := session.DB("test").C("people")
+        err = c.Insert(&Person{"Ale", "+55 53 8116 9639"},
+	               &Person{"Cla", "+55 53 8402 8510"})
         if err != nil {
                 log.Fatal(err)
         }
 
         result := Person{}
-        err = c.Find(bson.M{"name": "MB"}).One(&result)
+        err = c.Find(bson.M{"name": "Ale"}).One(&result)
         if err != nil {
                 log.Fatal(err)
         }

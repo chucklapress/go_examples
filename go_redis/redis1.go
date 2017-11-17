@@ -4,9 +4,8 @@ import "github.com/hoisie/redis"
 
 func main() {
     var client redis.Client
-    var key = "Elizabeth"
-    client.Set(key, []byte("Barr"))
-    val, _ := client.Get("Elizabeth")
+    var key = "Chuck"
+    client.Set(key, []byte("LaPress"))
+    val, _ := client.Get("Chuck")
     println(key, string(val))
-
 }
