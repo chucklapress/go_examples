@@ -9,11 +9,11 @@ import (
 
 type Person struct {
         Name string
-        Phone string
+        Address string
 }
 
 func main() {
-        session, err := mgo.Dial("mongodb://localhost:27017/new")
+        session, err := mgo.Dial("mongodb://localhost:27017/peeps")
         if err != nil {
                 panic(err)
         }
@@ -22,18 +22,18 @@ func main() {
         // Optional. Switch the session to a monotonic behavior.
         session.SetMode(mgo.Monotonic, true)
 
-        c := session.DB("test").C("people")
-        err = c.Insert(&Person{"Ale", "+55 53 8116 9639"},
-	               &Person{"Cla", "+55 53 8402 8510"})
+        c := session.DB("test").C("peeps")
+        err = c.Insert(&Person{"Chuck", "29 Butler Springs Road"},
+	               &Person{"Summer", "29 Butler Springs Road"})
         if err != nil {
                 log.Fatal(err)
         }
 
         result := Person{}
-        err = c.Find(bson.M{"name": "Ale"}).One(&result)
+        err = c.Find(bson.M{"name": "Chuck"}).One(&result)
         if err != nil {
                 log.Fatal(err)
         }
 
-        fmt.Println("Phone:", result.Phone)
+        fmt.Println("Address:", result.Address)
 }
